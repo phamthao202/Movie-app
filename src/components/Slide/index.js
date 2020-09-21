@@ -1,44 +1,48 @@
 import React from "react";
 import { Carousel } from "react-bootstrap";
 import MovieList from "../MovieList";
-export default function Slide({list}) {
+export default function Slide({ list }) {
+  if (!list || list.length == 0) {
+    return <div>Loading</div>;
+  }
   return (
     <div>
       <Carousel>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            // src={`https://image.tmdb.org/t/p/w1280${movieList[0].backdrop_path}`}
+            src={`https://image.tmdb.org/t/p/w1280${list[0].backdrop_path}`}
             alt="First slide"
           />
+          {console.log(list[0].backdrop_path)}
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>{list[0].title}</h3>
+            <p>{list[0].overview}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Teahupoo1.jpg"
+            src={`https://image.tmdb.org/t/p/w1280${list[1].backdrop_path}`}
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>{list[1].title}</h3>
+            <p>{list[1].overview}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://s3.envato.com/files/261569933/IMG_6561.jpg"
+            src={`https://image.tmdb.org/t/p/w1280${list[2].backdrop_path}`}
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>{list[2].title}</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+            {list[2].overview}
             </p>
           </Carousel.Caption>
         </Carousel.Item>
